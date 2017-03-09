@@ -44,15 +44,21 @@
     var heartCheck = {
         timeout: 60000,//60秒
         timeoutObj: null,
+        serverTimeoutObj: null,
         reset: function(){
             clearTimeout(this.timeoutObj);
+            clearTimeout(this.serverTimeoutObj);
             return this;
         },
         start: function(){
+            var self = this;
             this.timeoutObj = setTimeout(function(){
                 //这里发送一个心跳，后端收到后，返回一个心跳消息，
                 //onmessage拿到返回的心跳就说明连接正常
                 ws.send("HeartBeat");
+                self.serverTimeoutObj = setTimeout(function(){//如果超过一定时间还没重置，说明后端主动断开了
+                    reconnect();
+                }, self.timeout)
             }, this.timeout)
         }
     }

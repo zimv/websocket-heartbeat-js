@@ -1,0 +1,26 @@
+{
+  "name": "zimv",
+  "version": "1.0.0",
+  "description": "test new package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zimv/WebSocketHeartBeat.git"
+  },
+  "keywords": [
+    "zimv"
+  ],
+  "author": "zimv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zimv/WebSocketHeartBeat/issues"
+  },
+  "homepage": "https://github.com/zimv/WebSocketHeartBeat#readme",
+  "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1"
+  }
+}

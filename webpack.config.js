@@ -6,10 +6,21 @@ const config = {
     },
     output: {
         filename: 'index.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        libraryTarget: 'umd',
+        umdNamedDefine: true
     },
     optimization: {
         minimize: true
+    },
+    module:{
+        rules:[
+            {
+                test: /\.js$/,
+                 exclude: /node_modules/, 
+                 loader: "babel-loader"
+            }
+        ]
     }
 }
 module.exports = config;

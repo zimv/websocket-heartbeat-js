@@ -4,11 +4,11 @@
   "description": "test new package",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha-phantomjs -p ./node_modules/.bin/phantomjs /test/unit/index.html"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zimv/WebSocketHeartBeat.git"
+    "url": "git+https://github.com/zimv/websocket-heartbeat-js.git"
   },
   "keywords": [
     "zimv"
@@ -16,11 +16,22 @@
   "author": "zimv",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zimv/WebSocketHeartBeat/issues"
+    "url": "https://github.com/zimv/websocket-heartbeat-js/issues"
   },
-  "homepage": "https://github.com/zimv/WebSocketHeartBeat#readme",
+  "homepage": "https://github.com/zimv/websocket-heartbeat-js#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "mocha-phantomjs": "^4.1.0",
+    "phantomjs-prebuilt": "^2.1.16",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.1"
+  },
+  "babel": {
+    "presets": ["env"],
+    "plugins": []
   }
 }

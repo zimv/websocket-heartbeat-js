@@ -1,6 +1,6 @@
 # websocket-heartbeat-js
 
-#文档未完待续，如需使用，请看demo代码
+# 文档未完待续，如需使用，请看demo代码，预览[demo show][1]
 ---
 
 ## 介绍

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>websocket-heartbeat-js demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<style>
+    .logs {
+        padding: 40px 0 0 40px;
+    }
+
+    .logs div {
+        line-height: 26px;
+        font-size: 16px;
+    }
+
+    .brown {
+        color: brown;
+        font-size: 14px!important;
+    }
+    .cadetblue{
+        color: cadetblue;
+    }
+    .chocolate{
+        color: chocolate;
+    }
+    .gray {
+        color: #666666;
+    }
+</style>
+
+<body>
+    <div class="logs" id="logs"></div>
+
+    <script src="./../dist/index.js"></script>
+    <script>
+        const $logs = document.getElementById('logs');
+        function addLog(log, color = 'gray') {
+            let div = document.createElement('div');
+            div.textContent = log;
+            div.className = color;
+            $logs.appendChild(div);
+            window.scrollTo(0, 100000);
+        }
+    </script>
+
+    <script>
+        const url = 'ws://123.207.167.163:9010/ajaxchattest';
+        let firstHeartbeat = true;
+        let wsHeartbeat = new WebsocketHeartbeatJs({
+            url: url,
+            pingTimeout: 8000,
+            pongTimeout: 8000
+        });
+        addLog(`new WebsocketHearbeatJs to connect ${url}`);
+        addLog(`tips: because use third websocket url, url possibility invalid, in that case, submit issue`, 'brown');
+        wsHeartbeat.onopen = function () {
+            addLog('connect success', 'cadetblue');
+            addLog('send massage: test', 'cadetblue');
+            wsHeartbeat.send('test');
+            setTimeout(() => {
+                addLog(`wait ${wsHeartbeat.opts.pingTimeout} ms will hava '${wsHeartbeat.opts.heartMsg}'`, 'cadetblue');
+            }, 1500);
+        }
+        wsHeartbeat.onmessage = function (e) {
+            addLog(`onmessage: ${e.data}`);
+            if (e.data == wsHeartbeat.opts.heartMsg && firstHeartbeat) {
+                setTimeout(() => {
+                    addLog(`close your network, wait ${wsHeartbeat.opts.pingTimeout + wsHeartbeat.opts.pongTimeout}+ ms, websocket will reconnect`, 'cadetblue');
+                }, 1500);
+                firstHeartbeat = false;
+            }
+        }
+        wsHeartbeat.onreconnect = function () {
+            addLog(`reconnecting`, 'chocolate');
+            addLog(`tips: if you network closing, please open network, reconnect will success`, 'brown');
+        }
+    </script>
+</body>
+
+</html>

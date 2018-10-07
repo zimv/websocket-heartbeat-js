@@ -3,7 +3,7 @@ describe('websocket-heartbeat-js', function(){
 
     it("onopen", function(done){
         wsHeartbeat = new WebsocketHeartbeatJs({
-            url: 'ws://121.40.165.18:8800'
+            url: 'ws://123.207.167.163:9010/ajaxchattest'
         });
         wsHeartbeat.onopen = function(){
             done();
@@ -12,6 +12,7 @@ describe('websocket-heartbeat-js', function(){
     });
 
     it("onmessage", function(done){
+        wsHeartbeat.send('send message');
         wsHeartbeat.onmessage = function(e){
             //console.log(e);
             done();
@@ -44,22 +45,24 @@ describe('websocket-heartbeat-js', function(){
         wsHeartbeat.onclose = function(){}
     });
 
-    it("durative reconnect", function(done){
-        this.timeout(18000);
-        var wsHeartbeat = new WebsocketHeartbeatJs({//error address
-            url: 'ws://121.40.165.18:810'
-        });
-        var times = 0;
-        wsHeartbeat.onreconnect = function(){
-            times++;
-            if(times>3){
-                wsHeartbeat.close();
-                setTimeout(function(){
-                    if(times >= 3){
-                        done();
-                    }
-                }, 4000)
+    describe('reconnect test, wait 6~20 seconds', function(){
+        it("durative reconnect", function(done){
+            this.timeout(18000);
+            var wsHeartbeat = new WebsocketHeartbeatJs({//error address
+                url: 'ws://123.207.167.163:9010'
+            });
+            var times = 0;
+            wsHeartbeat.onreconnect = function(){
+                times++;
+                if(times>3){
+                    wsHeartbeat.close();
+                    setTimeout(function(){
+                        if(times >= 3){
+                            done();
+                        }
+                    }, 4000)
+                }
             }
-        }
+        });
     });
 })

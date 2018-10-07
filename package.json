@@ -1,8 +1,8 @@
 {
-  "name": "zimv",
-  "version": "1.0.0",
-  "description": "test new package",
-  "main": "index.js",
+  "name": "websocket-heartbeat-js",
+  "version": "1.0.2",
+  "description": "websocket heartbeat",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha-phantomjs -p ./node_modules/.bin/phantomjs /test/unit/index.html"
   },
@@ -11,10 +11,16 @@
     "url": "git+https://github.com/zimv/websocket-heartbeat-js.git"
   },
   "keywords": [
-    "zimv"
+    "zimv",
+    "websocket",
+    "heartbeat"
   ],
   "author": "zimv",
   "license": "MIT",
+  "files": [
+    "dist",
+    "lib"
+  ],
   "bugs": {
     "url": "https://github.com/zimv/websocket-heartbeat-js/issues"
   },
@@ -28,10 +34,12 @@
     "mocha-phantomjs": "^4.1.0",
     "phantomjs-prebuilt": "^2.1.16",
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.1"
+    "webpack-cli": "^3.1.2"
   },
   "babel": {
-    "presets": ["env"],
+    "presets": [
+      "env"
+    ],
     "plugins": []
   }
 }

@@ -21,6 +21,7 @@ const config = {
                 loader: "babel-loader"
             }
         ]
-    }
+    },
+    mode: "production"
 }
 module.exports = config;

@@ -1,6 +1,6 @@
 {
   "name": "websocket-heartbeat-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "websocket heartbeat",
   "main": "./dist/index.js",
   "scripts": {

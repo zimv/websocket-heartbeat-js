@@ -62,12 +62,12 @@
             addLog('send massage: test', 'cadetblue');
             wsHeartbeat.send('test');
             setTimeout(() => {
-                addLog(`wait ${wsHeartbeat.opts.pingTimeout} ms will hava '${wsHeartbeat.opts.heartMsg}'`, 'cadetblue');
+                addLog(`wait ${wsHeartbeat.opts.pingTimeout} ms will hava '${wsHeartbeat.opts.pingMsg}'`, 'cadetblue');
             }, 1500);
         }
         wsHeartbeat.onmessage = function (e) {
             addLog(`onmessage: ${e.data}`);
-            if (e.data == wsHeartbeat.opts.heartMsg && firstHeartbeat) {
+            if (e.data == wsHeartbeat.opts.pingMsg && firstHeartbeat) {
                 setTimeout(() => {
                     addLog(`close your network, wait ${wsHeartbeat.opts.pingTimeout + wsHeartbeat.opts.pongTimeout}+ ms, websocket will reconnect`, 'cadetblue');
                 }, 1500);

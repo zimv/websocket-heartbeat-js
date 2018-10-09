@@ -2,6 +2,7 @@ var wsHeartbeat;
 describe('websocket-heartbeat-js', function(){
 
     it("onopen", function(done){
+        this.timeout(4000);
         wsHeartbeat = new WebsocketHeartbeatJs({
             url: 'ws://123.207.167.163:9010/ajaxchattest'
         });
@@ -12,6 +13,7 @@ describe('websocket-heartbeat-js', function(){
     });
 
     it("onmessage", function(done){
+        this.timeout(4000);
         wsHeartbeat.send('send message');
         wsHeartbeat.onmessage = function(e){
             //console.log(e);
@@ -21,6 +23,7 @@ describe('websocket-heartbeat-js', function(){
     });
 
     it("onclose && reconnect", function(){
+        this.timeout(4000);
         var oncloseExecute = false;
         wsHeartbeat.onclose = function(){
             oncloseExecute = true;
@@ -35,6 +38,7 @@ describe('websocket-heartbeat-js', function(){
     });
 
     it("manually close && forbid reconnect", function(){
+        this.timeout(4000);
         var oncloseExecute = false;
         wsHeartbeat.onclose = function(){
             oncloseExecute = true;

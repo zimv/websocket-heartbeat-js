@@ -50,32 +50,32 @@
     <script>
         const url = 'ws://123.207.167.163:9010/ajaxchattest';
         let firstHeartbeat = true;
-        let wsHeartbeat = new WebsocketHeartbeatJs({
+        let websocketHeartbeatJs = new WebsocketHeartbeatJs({
             url: url,
             pingTimeout: 8000,
             pongTimeout: 8000
         });
         addLog(`new WebsocketHearbeatJs to connect ${url}`);
         addLog(`tips: because use third websocket url, url possibility invalid, in that case, submit issue`, 'brown');
-        wsHeartbeat.onopen = function () {
+        websocketHeartbeatJs.onopen = function () {
             addLog('connect success', 'cadetblue');
             addLog('send massage: test', 'cadetblue');
-            wsHeartbeat.send('test');
+            websocketHeartbeatJs.send('test');
             setTimeout(() => {
-                addLog(`wait ${wsHeartbeat.opts.pingTimeout} ms will hava '${wsHeartbeat.opts.pingMsg}'`, 'cadetblue');
+                addLog(`wait ${websocketHeartbeatJs.opts.pingTimeout} ms will hava '${websocketHeartbeatJs.opts.pingMsg}'`, 'cadetblue');
             }, 1500);
         }
-        wsHeartbeat.onmessage = function (e) {
+        websocketHeartbeatJs.onmessage = function (e) {
             addLog(`onmessage: ${e.data}`);
-            if (e.data == wsHeartbeat.opts.pingMsg && firstHeartbeat) {
+            if (e.data == websocketHeartbeatJs.opts.pingMsg && firstHeartbeat) {
                 setTimeout(() => {
-                    addLog(`close your network, wait ${wsHeartbeat.opts.pingTimeout + wsHeartbeat.opts.pongTimeout}+ ms, websocket will reconnect`, 'cadetblue');
+                    addLog(`close your network, wait ${websocketHeartbeatJs.opts.pingTimeout + websocketHeartbeatJs.opts.pongTimeout}+ ms, websocket will reconnect`, 'cadetblue');
                 }, 1500);
                 firstHeartbeat = false;
             }
         }
-        wsHeartbeat.onreconnect = function () {
-            addLog(`reconnecting`, 'chocolate');
+        websocketHeartbeatJs.onreconnect = function () {
+            addLog(`reconnecting...`, 'chocolate');
             addLog(`tips: if you network closing, please open network, reconnect will success`, 'brown');
         }
     </script>

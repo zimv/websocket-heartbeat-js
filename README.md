@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/zimv/websocket-heartbeat-js.svg?branch=master)](https://travis-ci.org/zimv/websocket-heartbeat-js)
 <a href="https://www.npmjs.com/package/websocket-heartbeat-js" alt="NPM latest version"><img src="https://img.shields.io/npm/v/websocket-heartbeat-js.svg"></a>
 <a href="https://npms.io/search?q=websocket-heartbeat-js" alt="NPM latest version"><img src="https://badges.npms.io/websocket-heartbeat-js.svg"></a>
-<a href="https://npm.runkit.com/websocket-heartbeat-js"><img src="https://badge.runkitcdn.com/websocket-heartbeat-js.svg" alt="Try websocket-heartbeat-js on RunKit"/></a>
 <a href="https://deepscan.io/dashboard/#view=project&pid=3358&bid=29734"><img src="https://deepscan.io/api/projects/3358/branches/29734/badge/grade.svg" alt="DeepScan Grade"></a>
 <a href="https://www.npmjs.com/package/websocket-heartbeat-js" alt="NPM total downloads"><img src="https://img.shields.io/npm/dt/websocket-heartbeat-js.svg"></a>
 <a href="https://github.com/zimv/websocket-heartbeat-js" alt="Github stars"><img src="https://img.shields.io/github/stars/zimv/websocket-heartbeat-js.svg?style=social&label=Star"></a>
@@ -31,10 +30,10 @@ websocket-heartbeat-js基于浏览器js原生websocket封装，主要目的是�
 
  
 ## 用法
-### install
+### 安装
     npm install websocket-heartbeat-js
 
-### import
+### 引入使用
 
     import WebsocketHeartbeatJs from 'websocket-heartbeat-js';
     let websocketHeartbeatJs = new WebsocketHeartbeatJs({
@@ -84,7 +83,7 @@ websocket-heartbeat-js仅仅是封装了心跳相关的钩子函数，websocketH
 前端手动断开websocket连接，此方法不会触发重连。
 
 websocketHeartbeatJs.close()
-### hook function
+### 钩子函数和事件函数
 #### websocketHeartbeatJs.onclose (function)
 
     websocketHeartbeatJs.onclose = () => {
@@ -119,7 +118,7 @@ websocketHeartbeatJs.close()
 [demo show][1]
 
 
-## blog 
+## 博客 
 [初探和实现websocket心跳重连][2]
 
 

@@ -21,10 +21,11 @@ websocket-heartbeat-js基于浏览器js原生websocket封装，主要目的是�
 为了解决以上两个问题，以前端作为主动方，定时发送ping消息，用于检测网络和前后端连接问题。一旦发现异常，前端持续执行重连逻辑，直到重连成功。
 ## 约定
 
- 1. ***关闭websocket连接***
+***1.关闭websocket连接***
 
  如果需要断开websocket，应该执行WebsocketHeartbeatJs.close()，WebsocketHeartbeatJs.ws是原生Websocket实例对象，WebsocketHeartbeatJs.ws.onclose，已经被绑定了重连方法，如果后端websocket服务直接关闭连接，前端WebsocketHeartbeatJs.ws.onclose会被执行，WebsocketHeartbeatJs会尝试重连。如果后端想告诉前端需要断开连接，需要发送特定消息给前端，前端收到特定消息，调用WebsocketHeartbeatJs.close()，WebsocketHeartbeatJs将不会重连。
- 2. ***ping & pong***
+ 
+***2.ping & pong***
 
  前端发送ping消息，后端收到后，需要立刻返回pong消息，pong消息可以是任何值，websocket-heartbeat-js并不处理pong消息，而只是在收到任何消息后，重置心跳，因为收到任何消息就说明连接是正常的。
 
@@ -53,7 +54,9 @@ websocket-heartbeat-js基于浏览器js原生websocket封装，主要目的是�
 ## API
 ### websocketHeartbeatJs.ws (WebSocket)
 websocket-heartbeat-js仅仅是封装了心跳相关的钩子函数，websocketHeartbeatJs.ws是原生Websocket实例，如需要使用更多websocket特性，请直接操作websocketHeartbeatJs.ws。
-***websocketHeartbeatJs.ws = WebSocket(websocketHeartbeatJs.opts.url);***
+
+    websocketHeartbeatJs.ws 等于 WebSocket(websocketHeartbeatJs.opts.url);
+
 ### websocketHeartbeatJs.opts (Object)
     
 | 属性 | 必填 | 类型 | 默认值 | 描述 |
@@ -81,8 +84,8 @@ websocket-heartbeat-js仅仅是封装了心跳相关的钩子函数，websocketH
 
 ### websocketHeartbeatJs.close() (function)
 前端手动断开websocket连接，此方法不会触发重连。
-
 websocketHeartbeatJs.close()
+
 ### 钩子函数和事件函数
 #### websocketHeartbeatJs.onclose (function)
 

@@ -18,10 +18,10 @@ const config = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/, 
-                loader: "babel-loader"
+                loader: 'babel-loader'
             }
         ]
     },
-    mode: "production"
-}
+    mode: 'production'
+};
 module.exports = config;

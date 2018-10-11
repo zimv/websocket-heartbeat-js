@@ -5,8 +5,13 @@
   "main": "./dist/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha-phantomjs -p ./node_modules/.bin/phantomjs /test/unit/index.html",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "lint": "eslint .",
+    "fix": "eslint --fix ."
   },
+  "pre-commit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zimv/websocket-heartbeat-js.git"
@@ -32,9 +37,11 @@
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "conventional-changelog-cli": "^2.0.5",
+    "eslint": "^5.6.1",
     "mocha": "^5.2.0",
     "mocha-phantomjs": "^4.1.0",
     "phantomjs-prebuilt": "^2.1.16",
+    "pre-commit": "^1.2.2",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   },

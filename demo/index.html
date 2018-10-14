@@ -56,7 +56,7 @@
             pongTimeout: 8000
         });
         addLog(`new WebsocketHearbeatJs to connect ${url}`);
-        addLog(`tips: because use third websocket url, url possibility invalid, in that case, submit issue`, 'brown');
+        addLog(`tips: Because use third websocket url, The url may be invalid, in that case submit issue`, 'brown');
         websocketHeartbeatJs.onopen = function () {
             addLog('connect success', 'cadetblue');
             addLog('send massage: test', 'cadetblue');
@@ -69,7 +69,7 @@
             addLog(`onmessage: ${e.data}`);
             if (e.data == websocketHeartbeatJs.opts.pingMsg && firstHeartbeat) {
                 setTimeout(() => {
-                    addLog(`close your network, wait ${websocketHeartbeatJs.opts.pingTimeout + websocketHeartbeatJs.opts.pongTimeout}+ ms, websocket will reconnect`, 'cadetblue');
+                    addLog(`Close your network, wait ${websocketHeartbeatJs.opts.pingTimeout + websocketHeartbeatJs.opts.pongTimeout}+ ms, websocket will reconnect`, 'cadetblue');
                 }, 1500);
                 firstHeartbeat = false;
             }

@@ -2,10 +2,7 @@
 ## 1.0.5 release (2018-10-15)
 
 
-### Features
-
-* demo ([3070b96](https://github.com/zimv/websocket-heartbeat-js/commit/3070b96))
-* webpack & lib ([e1514e7](https://github.com/zimv/websocket-heartbeat-js/commit/e1514e7))
+### docs update
 
 
 

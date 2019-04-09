@@ -78,6 +78,7 @@ websocket-heartbeat-js仅仅是封装了心跳相关的钩子函数，websocketH
 | pongTimeout | false | number | 10000 | ping消息发送之后，10秒内没收到后端消息便会认为连接断开 |
 | reconnectTimeout | false | number | 2000 | 尝试重连的间隔时间 |
 | pingMsg | false | string | "heartbeat" | ping消息值 |
+| repeatLimit | false | number | null | 重连尝试次数。默认不限制 |
 
 
     const options = {

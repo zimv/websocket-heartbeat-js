@@ -79,9 +79,9 @@ This ***websocketHeartbeatJs.ws*** is native **Websocket** instance. If you need
 | url | true | string | none | websocket service address |
 | pingTimeout | false | number | 15000 | A heartbeat is sent every 15 seconds. If any backend message is received, the timer will reset |
 | pongTimeout | false | number | 10000 | After the Ping message is sent, the connection will be disconnected without receiving the backend message within 10 seconds |
-| reconnectTimeout | false | number | 2000 | Try to reconnect intervals |
+| reconnectTimeout | false | number | 2000 | The interval of reconnection |
 | pingMsg | false | string | "heartbeat" | Ping message value |
-
+| repeatLimit | false | number | null | The trial times of reconnection。default: unlimited |
 
     const options = {
         url: 'ws://xxxx',

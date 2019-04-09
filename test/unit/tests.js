@@ -7,7 +7,9 @@ describe('websocket-heartbeat-js', function(){
             url: 'ws://123.207.167.163:9010/ajaxchattest'
         });
         wsHeartbeat.onopen = function(){
-            done();
+            if(wsHeartbeat.repeat==0){
+                done();
+            }
             wsHeartbeat.onopen = function(){}
         };
     });
@@ -49,22 +51,38 @@ describe('websocket-heartbeat-js', function(){
         wsHeartbeat.onclose = function(){};
     });
 
-    describe('reconnect test, wait 6~20 seconds', function(){
-        it('durative reconnect', function(done){
-            this.timeout(18000);
-            var wsHeartbeat = new WebsocketHeartbeatJs({//error address
-                url: 'ws://123.207.167.163:9010'
+    describe('reconnect test, wait 6~20 seconds, repeatLimit:4', function(){
+        it('limit reconnect', function(done){
+            this.timeout(26000);
+            var wsHeartbeat2 = new WebsocketHeartbeatJs({//error address
+                url: 'ws://123.207.167.163:9010',
+                repeatLimit: 4
             });
-            var times = 0;
-            wsHeartbeat.onreconnect = function(){
-                times++;
-                if(times>3){
-                    wsHeartbeat.close();
+            wsHeartbeat2.onreconnect = function(){
+                if(wsHeartbeat2.repeat>3){
                     setTimeout(function(){
-                        if(times >= 3){
+                        if(wsHeartbeat2.repeat > 3 && wsHeartbeat2.repeat<=4){
                             done();
                         }
-                    }, 4000);
+                    }, 8000);
+                }
+            };
+        });
+    });
+    describe('reconnect test, wait 6~20 seconds, repeatLimit:default', function(){
+        it('durative reconnect', function(done){
+            this.timeout(26000);
+            var wsHeartbeat2 = new WebsocketHeartbeatJs({//error address
+                url: 'ws://123.207.167.163:9010'
+            });
+            wsHeartbeat2.onreconnect = function(){
+                if(wsHeartbeat2.repeat>5){
+                    wsHeartbeat2.close();
+                    setTimeout(function(){
+                        if(wsHeartbeat2.repeat > 5){
+                            done();
+                        }
+                    }, 8000);
                 }
             };
         });

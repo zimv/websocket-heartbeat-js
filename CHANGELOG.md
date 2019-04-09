@@ -1,3 +1,12 @@
+<a name="1.0.8"></a>
+## 1.0.8 (2019-04-09)
+
+### Features
+
+* add a limit to the times of reconnection ([75c60af](https://github.com/zimv/websocket-heartbeat-js/commit/75c60af))
+
+
+
 <a name="1.0.7"></a>
 ## 1.0.7 (2018-10-25)
 

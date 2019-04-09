@@ -1,11 +1,12 @@
 {
   "name": "websocket-heartbeat-js",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "websocket heartbeat",
   "main": "./dist/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha-phantomjs -p ./node_modules/.bin/phantomjs /test/unit/index.html",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "build": "node_modules/webpack/bin/webpack.js",
     "lint": "eslint .",
     "fix": "eslint --fix ."
   },

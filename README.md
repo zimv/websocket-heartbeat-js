@@ -83,6 +83,7 @@ This ***websocketHeartbeatJs.ws*** is native **Websocket** instance. If you need
 | pingMsg | false | string | "heartbeat" | Ping message value |
 | repeatLimit | false | number | null | The trial times of reconnection。default: unlimited |
 
+
     const options = {
         url: 'ws://xxxx',
         pingTimeout: 15000, 

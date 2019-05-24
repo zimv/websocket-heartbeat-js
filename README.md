@@ -16,9 +16,9 @@ The websocket-heartbeat-js is base on **WebSocket** of browser javascript, whose
 When we use the native **websocket**, if network disconnects, any event function not be executed. So front-end program doesn't know that **websocket** was disconnected. But if program is now executing ***WebSocket.send()***, browser must discover that message signal is failed, so the onclose function will execute.
 
 
-Back-end **websocket** service is likely to happen error, when **websocket** disconnected that front-end not notice message received. So need to send ping message by timeout. Server return pong message to client when server received ping message. Becase received pong message, client know connection normal. If client not received pong message, it is connection abnormal, client will reconnect.
+Back-end **websocket** service is likely to happen error, when **websocket** disconnected that front-end not notice message received. So need to send ping message by timeout. Server return pong message to client when server received ping message. Because received pong message, client know connection normal. If client not received pong message, it is connection abnormal, client will reconnect.
 
-In summary, for solve above two problem. Client should initiative send ping message for check connect status.
+In summary, for solve above two problems. Client should initiative send ping message for check connect status.
 
 ## How
 

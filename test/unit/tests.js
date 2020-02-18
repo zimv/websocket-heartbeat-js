@@ -50,7 +50,8 @@ describe('websocket-heartbeat-js', function() {
 
     describe('reconnect test, wait 6~20 seconds, repeatLimit:4', function() {
         it('limit reconnect', function(done) {
-            this.timeout(26000);
+            //travis maybe timeout
+            this.timeout(90000);
             var wsHeartbeat2 = new WebsocketHeartbeatJs({
                 //error address
                 url: 'ws://123.207.167.163:9010',
@@ -72,7 +73,8 @@ describe('websocket-heartbeat-js', function() {
     });
     describe('reconnect test, wait 6~20 seconds, repeatLimit:default', function() {
         it('durative reconnect', function(done) {
-            this.timeout(26000);
+            //travis maybe timeout
+            this.timeout(90000);
             var wsHeartbeat2 = new WebsocketHeartbeatJs({
                 //error address
                 url: 'ws://123.207.167.163:9010'

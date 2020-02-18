@@ -1,37 +1,36 @@
 var wsHeartbeat;
-describe('websocket-heartbeat-js', function(){
-
-    it('onopen', function(done){
+describe('websocket-heartbeat-js', function() {
+    it('onopen', function(done) {
         this.timeout(4000);
         wsHeartbeat = new WebsocketHeartbeatJs({
-            url: 'ws://123.207.167.163:9010/ajaxchattest'
+            url: 'ws://123.207.136.134:9010/ajaxchattest'
         });
-        wsHeartbeat.onopen = function(){
-            if(wsHeartbeat.repeat==0){
+        wsHeartbeat.onopen = function() {
+            if (wsHeartbeat.repeat == 0) {
                 done();
             }
-            wsHeartbeat.onopen = function(){}
+            wsHeartbeat.onopen = function() {};
         };
     });
 
-    it('onmessage', function(done){
+    it('onmessage', function(done) {
         this.timeout(4000);
         wsHeartbeat.send('send message');
-        wsHeartbeat.onmessage = function(e){
+        wsHeartbeat.onmessage = function(e) {
             //console.log(e);
             done();
-            wsHeartbeat.onmessage = function(){};
+            wsHeartbeat.onmessage = function() {};
         };
     });
 
-    it('onclose && reconnect', function(){
+    it('onclose && reconnect', function() {
         this.timeout(4000);
         var oncloseExecute = false;
-        wsHeartbeat.onclose = function(){
+        wsHeartbeat.onclose = function() {
             oncloseExecute = true;
         };
         var onreconnectExecute = false;
-        wsHeartbeat.onreconnect = function(){
+        wsHeartbeat.onreconnect = function() {
             onreconnectExecute = true;
         };
         wsHeartbeat.ws.onclose();
@@ -39,29 +38,31 @@ describe('websocket-heartbeat-js', function(){
         chai.expect(oncloseExecute).to.equal(true);
     });
 
-    it('manually close && forbid reconnect', function(){
+    it('manually close && forbid reconnect', function(done) {
         this.timeout(4000);
         var oncloseExecute = false;
-        wsHeartbeat.onclose = function(){
-            oncloseExecute = true;
+        wsHeartbeat.onclose = function() {
+            chai.expect(wsHeartbeat.forbidReconnect).to.equal(true);
+            done();
         };
         wsHeartbeat.close();
-        chai.expect(oncloseExecute).to.equal(false);
-        chai.expect(wsHeartbeat.forbidReconnect).to.equal(true);
-        wsHeartbeat.onclose = function(){};
     });
 
-    describe('reconnect test, wait 6~20 seconds, repeatLimit:4', function(){
-        it('limit reconnect', function(done){
+    describe('reconnect test, wait 6~20 seconds, repeatLimit:4', function() {
+        it('limit reconnect', function(done) {
             this.timeout(26000);
-            var wsHeartbeat2 = new WebsocketHeartbeatJs({//error address
+            var wsHeartbeat2 = new WebsocketHeartbeatJs({
+                //error address
                 url: 'ws://123.207.167.163:9010',
                 repeatLimit: 4
             });
-            wsHeartbeat2.onreconnect = function(){
-                if(wsHeartbeat2.repeat>3){
-                    setTimeout(function(){
-                        if(wsHeartbeat2.repeat > 3 && wsHeartbeat2.repeat<=4){
+            wsHeartbeat2.onreconnect = function() {
+                if (wsHeartbeat2.repeat > 3) {
+                    setTimeout(function() {
+                        if (
+                            wsHeartbeat2.repeat > 3 &&
+                            wsHeartbeat2.repeat <= 4
+                        ) {
                             done();
                         }
                     }, 8000);
@@ -69,17 +70,18 @@ describe('websocket-heartbeat-js', function(){
             };
         });
     });
-    describe('reconnect test, wait 6~20 seconds, repeatLimit:default', function(){
-        it('durative reconnect', function(done){
+    describe('reconnect test, wait 6~20 seconds, repeatLimit:default', function() {
+        it('durative reconnect', function(done) {
             this.timeout(26000);
-            var wsHeartbeat2 = new WebsocketHeartbeatJs({//error address
+            var wsHeartbeat2 = new WebsocketHeartbeatJs({
+                //error address
                 url: 'ws://123.207.167.163:9010'
             });
-            wsHeartbeat2.onreconnect = function(){
-                if(wsHeartbeat2.repeat>5){
+            wsHeartbeat2.onreconnect = function() {
+                if (wsHeartbeat2.repeat > 5) {
                     wsHeartbeat2.close();
-                    setTimeout(function(){
-                        if(wsHeartbeat2.repeat > 5){
+                    setTimeout(function() {
+                        if (wsHeartbeat2.repeat > 5) {
                             done();
                         }
                     }, 8000);
@@ -87,4 +89,4 @@ describe('websocket-heartbeat-js', function(){
             };
         });
     });
-})
+});

@@ -140,6 +140,14 @@ The front end manually disconnects the websocket connection. This method does no
 [初探和实现websocket心跳重连][3]
 
 
+
+## similar package
+[websocket-heartbeat-miniprogram][4]
+
+
+  [1]: https://www.cnblogs.com/1wen/p/12302973.html
+
   [1]: https://github.com/zimv/websocket-heartbeat-js/blob/master/README-zh.md
   [2]: http://htmlpreview.github.io/?https://github.com/zimv/websocket-heartbeat-js/blob/master/demo/index.html
   [3]: http://www.cnblogs.com/1wen/p/5808276.html
+  [4]: https://github.com/zimv/websocket-heartbeat-miniprogram

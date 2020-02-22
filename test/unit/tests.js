@@ -3,7 +3,7 @@ describe('websocket-heartbeat-js', function() {
     it('onopen', function(done) {
         this.timeout(20000);
         wsHeartbeat = new WebsocketHeartbeatJs({
-            url: 'ws://123.207.136.134:9010/ajaxchattest'
+            url: 'ws://121.40.165.18:8800'
         });
         wsHeartbeat.onopen = function() {
             if (wsHeartbeat.repeat == 0) {

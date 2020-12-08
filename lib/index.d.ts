@@ -15,7 +15,6 @@ declare module 'websocket-heartbeat-js' {
     onopen (): void
     onmessage (event: MessageEvent): void
     onreconnect (): void
-    createWebSocket(): void
 
     constructor (opts: {
       url: string

@@ -1,3 +1,13 @@
+<a name="1.0.13"></a>
+## [1.0.13](https://github.com/zimv/websocket-heartbeat-js/compare/v1.0.12...v1.0.13) (2021-03-18)
+
+
+### Bug Fixes
+
+* window error in nodejs ([e547ca7](https://github.com/zimv/websocket-heartbeat-js/commit/e547ca7))
+
+
+
 <a name="1.0.9"></a>
 ## 1.0.9 (2020-02-22)
 

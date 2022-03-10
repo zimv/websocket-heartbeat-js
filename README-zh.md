@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/zimv/websocket-heartbeat-js.svg?branch=master)](https://travis-ci.org/zimv/websocket-heartbeat-js)
 <a href="https://www.npmjs.com/package/websocket-heartbeat-js" alt="NPM latest version"><img src="https://img.shields.io/npm/v/websocket-heartbeat-js.svg"></a>
 <a href="https://npms.io/search?q=websocket-heartbeat-js" alt="NPM latest version"><img src="https://badges.npms.io/websocket-heartbeat-js.svg"></a>
 <a href="https://deepscan.io/dashboard/#view=project&pid=3358&bid=29734"><img src="https://deepscan.io/api/projects/3358/branches/29734/badge/grade.svg" alt="DeepScan Grade"></a>

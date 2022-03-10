@@ -2,10 +2,11 @@ declare module 'websocket-heartbeat-js' {
   class WebsocketHeartbeatJs {
     opts: {
       url: string
+      protocols: string | string[]
       pingTimeout: number
       pongTimeout: number
       reconnectTimeout: number
-      pingMsg: string
+      pingMsg: any
       repeatLimit: null | number
     }
     ws: WebSocket
@@ -18,10 +19,11 @@ declare module 'websocket-heartbeat-js' {
 
     constructor (opts: {
       url: string
+      protocols?: string | string[]
       pingTimeout?: number
       pongTimeout?: number
       reconnectTimeout?: number
-      pingMsg?: string
+      pingMsg?: any
       repeatLimit?: number | null
     })
 

@@ -3,13 +3,27 @@ describe('websocket-heartbeat-js', function () {
   it('onopen', function (done) {
     this.timeout(20000);
     wsHeartbeat = new WebsocketHeartbeatJs({
-      url: 'ws://123.207.136.134:9010/ajaxchattest',
+      url: 'ws://localhost:3003/',
     });
     wsHeartbeat.onopen = function () {
       if (wsHeartbeat.repeat == 0) {
         done();
       }
       wsHeartbeat.onopen = function () {};
+    };
+  });
+
+  it('protocols', function (done) {
+    this.timeout(20000);
+    var ws = new WebsocketHeartbeatJs({
+      url: 'ws://localhost:3003/',
+      protocols: ['protocol1']
+    });
+    ws.onopen = function () {
+      if (ws.repeat == 0) {
+        done();
+      }
+      ws.onopen = function () {};
     };
   });
 

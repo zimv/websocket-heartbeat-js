@@ -1,11 +1,11 @@
 {
   "name": "websocket-heartbeat-js",
-  "version": "1.0.13",
+  "version": "1.1.13",
   "description": "websocket heartbeat",
   "main": "./dist/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "test": "./node_modules/.bin/mocha-phantomjs -p ./node_modules/.bin/phantomjs /test/unit/index.html",
+    "test": "node test/unit/server.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "build": "node_modules/webpack/bin/webpack.js",
     "lint": "eslint .",
@@ -41,11 +41,11 @@
     "conventional-changelog-cli": "^2.0.5",
     "eslint": "^5.6.1",
     "mocha": "^5.2.0",
-    "mocha-phantomjs": "^4.1.0",
-    "phantomjs-prebuilt": "^2.1.16",
+    "opn": "^6.0.0",
     "pre-commit": "^1.2.2",
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "ws": "^8.5.0"
   },
   "babel": {
     "presets": [

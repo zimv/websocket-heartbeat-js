@@ -48,7 +48,8 @@
     </script>
 
     <script>
-        const url = 'ws://123.207.167.163:9010/ajaxchattest';
+        // excute: node test/unit/server.js
+        const url = 'ws://127.0.0.1:3003';
         let firstHeartbeat = true;
         let websocketHeartbeatJs = new WebsocketHeartbeatJs({
             url: url,
@@ -56,7 +57,7 @@
             pongTimeout: 8000
         });
         addLog(`new WebsocketHearbeatJs to connect ${url}`);
-        addLog(`tips: Because use third websocket url, The url may be invalid, in that case submit issue`, 'brown');
+        addLog(`Tips: Terminal execution-> node test/unit/server.js`, 'brown');
         websocketHeartbeatJs.onopen = function () {
             addLog('connect success', 'cadetblue');
             addLog('send massage: test', 'cadetblue');

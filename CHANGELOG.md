@@ -1,3 +1,13 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/zimv/websocket-heartbeat-js/compare/v1.0.13...v1.1.0) (2022-03-10)
+
+
+### Features
+
+* add protocols param & pingMsg type: any ([5ff4297](https://github.com/zimv/websocket-heartbeat-js/commit/5ff4297))
+
+
+
 <a name="1.0.13"></a>
 ## [1.0.13](https://github.com/zimv/websocket-heartbeat-js/compare/v1.0.12...v1.0.13) (2021-03-18)
 

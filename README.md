@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/zimv/websocket-heartbeat-js.svg?branch=master)](https://travis-ci.org/zimv/websocket-heartbeat-js)
 <a href="https://www.npmjs.com/package/websocket-heartbeat-js" alt="NPM latest version"><img src="https://img.shields.io/npm/v/websocket-heartbeat-js.svg"></a>
 <a href="https://npms.io/search?q=websocket-heartbeat-js" alt="NPM latest version"><img src="https://badges.npms.io/websocket-heartbeat-js.svg"></a>
 <a href="https://deepscan.io/dashboard/#view=project&pid=3358&bid=29734"><img src="https://deepscan.io/api/projects/3358/branches/29734/badge/grade.svg" alt="DeepScan Grade"></a>
@@ -77,10 +76,11 @@ This ***websocketHeartbeatJs.ws*** is native **Websocket** instance. If you need
 | Attribute | required | type | default | description |
 | ------ | ------ | ------ | ------ | ------ |
 | url | true | string | none | websocket service address |
+| protocols | false | string or string[] | none | new WebSocket(, protocols)|
 | pingTimeout | false | number | 15000 | A heartbeat is sent every 15 seconds. If any backend message is received, the timer will reset |
 | pongTimeout | false | number | 10000 | After the Ping message is sent, the connection will be disconnected without receiving the backend message within 10 seconds |
 | reconnectTimeout | false | number | 2000 | The interval of reconnection |
-| pingMsg | false | string | "heartbeat" | Ping message value |
+| pingMsg | false | any | "heartbeat" | Ping message value |
 | repeatLimit | false | number | null | The trial times of reconnection。default: unlimited |
 
 

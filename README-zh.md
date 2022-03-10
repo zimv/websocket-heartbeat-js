@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/zimv/websocket-heartbeat-js.svg?branch=master)](https://travis-ci.org/zimv/websocket-heartbeat-js)
 <a href="https://www.npmjs.com/package/websocket-heartbeat-js" alt="NPM latest version"><img src="https://img.shields.io/npm/v/websocket-heartbeat-js.svg"></a>
 <a href="https://npms.io/search?q=websocket-heartbeat-js" alt="NPM latest version"><img src="https://badges.npms.io/websocket-heartbeat-js.svg"></a>
 <a href="https://deepscan.io/dashboard/#view=project&pid=3358&bid=29734"><img src="https://deepscan.io/api/projects/3358/branches/29734/badge/grade.svg" alt="DeepScan Grade"></a>
@@ -74,10 +73,11 @@ websocket-heartbeat-js仅仅是封装了心跳相关的钩子函数，websocketH
 | 属性 | 必填 | 类型 | 默认值 | 描述 |
 | ------ | ------ | ------ | ------ | ------ |
 | url | true | string | none | websocket服务端接口地址 |
+| protocols | false | string or string[] | none | new WebSocket(, protocols)|
 | pingTimeout | false | number | 15000 | 每隔15秒发送一次心跳，如果收到任何后端消息定时器将会重置 |
 | pongTimeout | false | number | 10000 | ping消息发送之后，10秒内没收到后端消息便会认为连接断开 |
 | reconnectTimeout | false | number | 2000 | 尝试重连的间隔时间 |
-| pingMsg | false | string | "heartbeat" | ping消息值 |
+| pingMsg | false | any | "heartbeat" | ping消息值 |
 | repeatLimit | false | number | null | 重连尝试次数。默认不限制 |
 
 

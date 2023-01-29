@@ -103,4 +103,20 @@ describe('websocket-heartbeat-js', function () {
       };
     });
   });
+  describe('reconnect 0, wait 6~20 seconds, repeatLimit:0', function () {
+    it('reconnect 0', function (done) {
+      //travis maybe timeout
+      this.timeout(90000);
+      var wsHeartbeat2 = new WebsocketHeartbeatJs({
+        //error address
+        url: 'ws://dashiren.cn/',
+        repeatLimit: 0,
+      });
+      setTimeout(function () {
+        if (wsHeartbeat2.repeat === 0) {
+          done();
+        }
+      }, 12000);
+    });
+  });
 });

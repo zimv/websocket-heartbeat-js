@@ -1,3 +1,13 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/zimv/websocket-heartbeat-js/compare/v1.1.0...v1.1.1) (2023-01-29)
+
+
+### Bug Fixes
+
+* repeatLimit 0 ([6970548](https://github.com/zimv/websocket-heartbeat-js/commit/6970548))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/zimv/websocket-heartbeat-js/compare/v1.0.13...v1.1.0) (2022-03-10)
 

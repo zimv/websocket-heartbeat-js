@@ -1,3 +1,13 @@
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/zimv/websocket-heartbeat-js/compare/v1.1.1...v1.1.2) (2023-03-21)
+
+
+### Features
+
+* Event method returns an event object ([5a8fca6](https://github.com/zimv/websocket-heartbeat-js/commit/5a8fca6))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/zimv/websocket-heartbeat-js/compare/v1.1.0...v1.1.1) (2023-01-29)
 

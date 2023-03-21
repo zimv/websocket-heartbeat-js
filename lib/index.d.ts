@@ -11,9 +11,9 @@ declare module 'websocket-heartbeat-js' {
     }
     ws: WebSocket
     repeat: number
-    onclose (): void
-    onerror (): void
-    onopen (): void
+    onclose (event: CloseEvent): void
+    onerror (event: Event): void
+    onopen (event: Event): void
     onmessage (event: MessageEvent): void
     onreconnect (): void
 

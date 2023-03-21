@@ -104,19 +104,19 @@ The front end manually disconnects the websocket connection. This method does no
 ### hook function and event function
 #### websocketHeartbeatJs.onclose (function)
 
-    websocketHeartbeatJs.onclose = () => {
+    websocketHeartbeatJs.onclose = (e) => {
         console.log('connect close');
     }
 
 #### websocketHeartbeatJs.onerror (function)
 
-    websocketHeartbeatJs.onerror = () => {
+    websocketHeartbeatJs.onerror = (e) => {
         console.log('connect onerror');
     }
 
 #### websocketHeartbeatJs.onopen (function)
 
-    websocketHeartbeatJs.onopen = () => {
+    websocketHeartbeatJs.onopen = (e) => {
         console.log('open success');
     }
 

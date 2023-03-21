@@ -102,19 +102,19 @@ websocketHeartbeatJs.close()
 ### 钩子函数和事件函数
 #### websocketHeartbeatJs.onclose (function)
 
-    websocketHeartbeatJs.onclose = () => {
+    websocketHeartbeatJs.onclose = (e) => {
         console.log('connect close');
     }
 
 #### websocketHeartbeatJs.onerror (function)
 
-    websocketHeartbeatJs.onerror = () => {
+    websocketHeartbeatJs.onerror = (e) => {
         console.log('connect onerror');
     }
 
 #### websocketHeartbeatJs.onopen (function)
 
-    websocketHeartbeatJs.onopen = () => {
+    websocketHeartbeatJs.onopen = (e) => {
         console.log('open success');
     }
 

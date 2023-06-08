@@ -1,3 +1,13 @@
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/zimv/websocket-heartbeat-js/compare/v1.1.2...v1.1.3) (2023-06-08)
+
+
+### Features
+
+* add function for pingMsg ([259a119](https://github.com/zimv/websocket-heartbeat-js/commit/259a119))
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/zimv/websocket-heartbeat-js/compare/v1.1.1...v1.1.2) (2023-03-21)
 

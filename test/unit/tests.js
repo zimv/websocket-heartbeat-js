@@ -27,6 +27,22 @@ describe('websocket-heartbeat-js', function () {
     };
   });
 
+  it('function pingmsg', function (done) {
+    this.timeout(5000);
+    var ws = new WebsocketHeartbeatJs({
+      url: 'ws://localhost:3003/',
+      pingMsg: ()=>'function pingmsg',
+      pingTimeout: 500
+    });
+    ws.onmessage = function (e) {
+      if(e.data === "function pongmsg"){
+        done();
+        ws.close();
+      }
+      console.log(e);
+    };
+  });
+
   it('onmessage', function (done) {
     this.timeout(20000);
     wsHeartbeat.send('send message');

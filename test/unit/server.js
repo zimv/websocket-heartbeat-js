@@ -9,6 +9,11 @@ wss.on('connection', function connection(ws) {
   ws.on('message', function message(data) {
     console.log('received: %s', data);
 
+    if(data.toString() === 'function pingmsg') {
+      this.send('function pongmsg');
+      return
+    }
+
     this.send('server received message');
   });
   if(ws._protocol) ws.send('Use protocol: ' + ws._protocol);

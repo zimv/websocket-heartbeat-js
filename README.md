@@ -21,7 +21,7 @@ In summary, for solve above two problems. Client should initiative send ping mes
 
 ## How
 
-***1.close websocket connection***
+***1.Close websocket connection***
 
 If **websocket** need to disconnect, client must execute ***WebsocketHeartbeatJs.close()***. If server wants to disconnect, it should send a close message to client. When client received close message that it to execute ***WebsocketHeartbeatJs.close()***. 
 
@@ -32,16 +32,16 @@ If **websocket** need to disconnect, client must execute ***WebsocketHeartbeatJs
     }
 
  
-***2.ping & pong***
+***2.Ping & Pong***
 
 Server should to return pong message when the client sends a ping message. Pong message can be of any value. websocket-heartbeat-js will not handle pong message, instead it will only reset heartbeat after receiving any message, as receiving any message means that the connection is normal.
 
  
 ## Usage
-### install
+### Install
     npm install websocket-heartbeat-js
 
-### import
+### Import
 
     import WebsocketHeartbeatJs from 'websocket-heartbeat-js';
     let websocketHeartbeatJs = new WebsocketHeartbeatJs({
@@ -58,7 +58,7 @@ Server should to return pong message when the client sends a ping message. Pong 
         console.log('reconnecting...');
     }
 
-#### use script
+#### Use script
 
     <script src="./node_modules/websocket-heartbeat-js/dist/index.js"></script>
     let websocketHeartbeatJs = new window.WebsocketHeartbeatJs({
@@ -132,16 +132,16 @@ The front end manually disconnects the websocket connection. This method does no
         console.log('reconnecting...');
     }
 
-## demo
+## Demo
 [demo show][2]
 
 
-## blog
+## Blog
 [初探和实现websocket心跳重连][3]
 
 
 
-## similar package
+## Similar package
 [websocket-heartbeat-miniprogram][4]
 
 

@@ -130,7 +130,7 @@ websocketHeartbeatJs.close()
         console.log('reconnecting...');
     }
 
-## demo
+## Demo
 [demo show][2]
 
 
